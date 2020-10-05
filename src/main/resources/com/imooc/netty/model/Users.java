@@ -1,4 +1,4 @@
-package com.slx.zsxt.model;
+package com.imooc.netty.model;
 
 public class Users {
     private String id;

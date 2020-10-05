@@ -1,7 +1,7 @@
-package com.immoc.netty.dao;
+package com.imooc.netty.dao;
 
-import com.slx.zsxt.model.FriendsRequest;
-import com.slx.zsxt.model.FriendsRequestExample;
+import com.imooc.netty.model.FriendsRequest;
+import com.imooc.netty.model.FriendsRequestExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

@@ -1,4 +1,4 @@
-package com.slx.zsxt.model;
+package com.imooc.netty.model;
 
 import java.util.ArrayList;
 import java.util.Date;

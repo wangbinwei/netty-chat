@@ -1,7 +1,7 @@
-package com.immoc.netty.dao;
+package com.imooc.netty.dao;
 
-import com.slx.zsxt.model.ChatMsg;
-import com.slx.zsxt.model.ChatMsgExample;
+import com.imooc.netty.model.ChatMsg;
+import com.imooc.netty.model.ChatMsgExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

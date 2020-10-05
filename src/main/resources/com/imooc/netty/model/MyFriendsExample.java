@@ -1,17 +1,16 @@
-package com.slx.zsxt.model;
+package com.imooc.netty.model;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class FriendsRequestExample {
+public class MyFriendsExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public FriendsRequestExample() {
+    public MyFriendsExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -175,203 +174,143 @@ public class FriendsRequestExample {
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdIsNull() {
-            addCriterion("send_user_id is null");
+        public Criteria andMyUserIdIsNull() {
+            addCriterion("my_user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdIsNotNull() {
-            addCriterion("send_user_id is not null");
+        public Criteria andMyUserIdIsNotNull() {
+            addCriterion("my_user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdEqualTo(String value) {
-            addCriterion("send_user_id =", value, "sendUserId");
+        public Criteria andMyUserIdEqualTo(String value) {
+            addCriterion("my_user_id =", value, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdNotEqualTo(String value) {
-            addCriterion("send_user_id <>", value, "sendUserId");
+        public Criteria andMyUserIdNotEqualTo(String value) {
+            addCriterion("my_user_id <>", value, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdGreaterThan(String value) {
-            addCriterion("send_user_id >", value, "sendUserId");
+        public Criteria andMyUserIdGreaterThan(String value) {
+            addCriterion("my_user_id >", value, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdGreaterThanOrEqualTo(String value) {
-            addCriterion("send_user_id >=", value, "sendUserId");
+        public Criteria andMyUserIdGreaterThanOrEqualTo(String value) {
+            addCriterion("my_user_id >=", value, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdLessThan(String value) {
-            addCriterion("send_user_id <", value, "sendUserId");
+        public Criteria andMyUserIdLessThan(String value) {
+            addCriterion("my_user_id <", value, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdLessThanOrEqualTo(String value) {
-            addCriterion("send_user_id <=", value, "sendUserId");
+        public Criteria andMyUserIdLessThanOrEqualTo(String value) {
+            addCriterion("my_user_id <=", value, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdLike(String value) {
-            addCriterion("send_user_id like", value, "sendUserId");
+        public Criteria andMyUserIdLike(String value) {
+            addCriterion("my_user_id like", value, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdNotLike(String value) {
-            addCriterion("send_user_id not like", value, "sendUserId");
+        public Criteria andMyUserIdNotLike(String value) {
+            addCriterion("my_user_id not like", value, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdIn(List<String> values) {
-            addCriterion("send_user_id in", values, "sendUserId");
+        public Criteria andMyUserIdIn(List<String> values) {
+            addCriterion("my_user_id in", values, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdNotIn(List<String> values) {
-            addCriterion("send_user_id not in", values, "sendUserId");
+        public Criteria andMyUserIdNotIn(List<String> values) {
+            addCriterion("my_user_id not in", values, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdBetween(String value1, String value2) {
-            addCriterion("send_user_id between", value1, value2, "sendUserId");
+        public Criteria andMyUserIdBetween(String value1, String value2) {
+            addCriterion("my_user_id between", value1, value2, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andSendUserIdNotBetween(String value1, String value2) {
-            addCriterion("send_user_id not between", value1, value2, "sendUserId");
+        public Criteria andMyUserIdNotBetween(String value1, String value2) {
+            addCriterion("my_user_id not between", value1, value2, "myUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdIsNull() {
-            addCriterion("accept_user_id is null");
+        public Criteria andMyFriendUserIdIsNull() {
+            addCriterion("my_friend_user_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdIsNotNull() {
-            addCriterion("accept_user_id is not null");
+        public Criteria andMyFriendUserIdIsNotNull() {
+            addCriterion("my_friend_user_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdEqualTo(String value) {
-            addCriterion("accept_user_id =", value, "acceptUserId");
+        public Criteria andMyFriendUserIdEqualTo(String value) {
+            addCriterion("my_friend_user_id =", value, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdNotEqualTo(String value) {
-            addCriterion("accept_user_id <>", value, "acceptUserId");
+        public Criteria andMyFriendUserIdNotEqualTo(String value) {
+            addCriterion("my_friend_user_id <>", value, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdGreaterThan(String value) {
-            addCriterion("accept_user_id >", value, "acceptUserId");
+        public Criteria andMyFriendUserIdGreaterThan(String value) {
+            addCriterion("my_friend_user_id >", value, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdGreaterThanOrEqualTo(String value) {
-            addCriterion("accept_user_id >=", value, "acceptUserId");
+        public Criteria andMyFriendUserIdGreaterThanOrEqualTo(String value) {
+            addCriterion("my_friend_user_id >=", value, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdLessThan(String value) {
-            addCriterion("accept_user_id <", value, "acceptUserId");
+        public Criteria andMyFriendUserIdLessThan(String value) {
+            addCriterion("my_friend_user_id <", value, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdLessThanOrEqualTo(String value) {
-            addCriterion("accept_user_id <=", value, "acceptUserId");
+        public Criteria andMyFriendUserIdLessThanOrEqualTo(String value) {
+            addCriterion("my_friend_user_id <=", value, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdLike(String value) {
-            addCriterion("accept_user_id like", value, "acceptUserId");
+        public Criteria andMyFriendUserIdLike(String value) {
+            addCriterion("my_friend_user_id like", value, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdNotLike(String value) {
-            addCriterion("accept_user_id not like", value, "acceptUserId");
+        public Criteria andMyFriendUserIdNotLike(String value) {
+            addCriterion("my_friend_user_id not like", value, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdIn(List<String> values) {
-            addCriterion("accept_user_id in", values, "acceptUserId");
+        public Criteria andMyFriendUserIdIn(List<String> values) {
+            addCriterion("my_friend_user_id in", values, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdNotIn(List<String> values) {
-            addCriterion("accept_user_id not in", values, "acceptUserId");
+        public Criteria andMyFriendUserIdNotIn(List<String> values) {
+            addCriterion("my_friend_user_id not in", values, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdBetween(String value1, String value2) {
-            addCriterion("accept_user_id between", value1, value2, "acceptUserId");
+        public Criteria andMyFriendUserIdBetween(String value1, String value2) {
+            addCriterion("my_friend_user_id between", value1, value2, "myFriendUserId");
             return (Criteria) this;
         }
 
-        public Criteria andAcceptUserIdNotBetween(String value1, String value2) {
-            addCriterion("accept_user_id not between", value1, value2, "acceptUserId");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeIsNull() {
-            addCriterion("request_date_time is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeIsNotNull() {
-            addCriterion("request_date_time is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeEqualTo(Date value) {
-            addCriterion("request_date_time =", value, "requestDateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeNotEqualTo(Date value) {
-            addCriterion("request_date_time <>", value, "requestDateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeGreaterThan(Date value) {
-            addCriterion("request_date_time >", value, "requestDateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeGreaterThanOrEqualTo(Date value) {
-            addCriterion("request_date_time >=", value, "requestDateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeLessThan(Date value) {
-            addCriterion("request_date_time <", value, "requestDateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeLessThanOrEqualTo(Date value) {
-            addCriterion("request_date_time <=", value, "requestDateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeIn(List<Date> values) {
-            addCriterion("request_date_time in", values, "requestDateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeNotIn(List<Date> values) {
-            addCriterion("request_date_time not in", values, "requestDateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeBetween(Date value1, Date value2) {
-            addCriterion("request_date_time between", value1, value2, "requestDateTime");
-            return (Criteria) this;
-        }
-
-        public Criteria andRequestDateTimeNotBetween(Date value1, Date value2) {
-            addCriterion("request_date_time not between", value1, value2, "requestDateTime");
+        public Criteria andMyFriendUserIdNotBetween(String value1, String value2) {
+            addCriterion("my_friend_user_id not between", value1, value2, "myFriendUserId");
             return (Criteria) this;
         }
     }

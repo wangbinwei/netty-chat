@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.immoc.netty.dao.MyFriendsMapper">
-  <resultMap id="BaseResultMap" type="com.slx.zsxt.model.MyFriends">
+<mapper namespace="com.imooc.netty.dao.ChatMsgMapper">
+  <resultMap id="BaseResultMap" type="com.imooc.netty.model.ChatMsg">
     <constructor>
       <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="my_user_id" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="my_friend_user_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="send_user_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="accept_user_id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msg" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="sign_flag" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Example_Where_Clause">
@@ -67,15 +70,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, my_user_id, my_friend_user_id
+    id, send_user_id, accept_user_id, msg, sign_flag, create_time
   </sql>
-  <select id="selectByExample" parameterType="com.slx.zsxt.model.MyFriendsExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.imooc.netty.model.ChatMsgExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from my_friends
+    from chat_msg
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,65 +89,94 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from my_friends
+    from chat_msg
     where id = #{id,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
-    delete from my_friends
+    delete from chat_msg
     where id = #{id,jdbcType=VARCHAR}
   </delete>
-  <delete id="deleteByExample" parameterType="com.slx.zsxt.model.MyFriendsExample">
-    delete from my_friends
+  <delete id="deleteByExample" parameterType="com.imooc.netty.model.ChatMsgExample">
+    delete from chat_msg
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.slx.zsxt.model.MyFriends">
-    <selectKey keyProperty="myUserId" order="AFTER" resultType="java.lang.String">
+  <insert id="insert" parameterType="com.imooc.netty.model.ChatMsg">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into my_friends (id, my_friend_user_id)
-    values (#{id,jdbcType=VARCHAR}, #{myFriendUserId,jdbcType=VARCHAR})
+    insert into chat_msg (send_user_id, accept_user_id, msg, 
+      sign_flag, create_time)
+    values (#{sendUserId,jdbcType=VARCHAR}, #{acceptUserId,jdbcType=VARCHAR}, #{msg,jdbcType=VARCHAR}, 
+      #{signFlag,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.slx.zsxt.model.MyFriends">
-    <selectKey keyProperty="myUserId" order="AFTER" resultType="java.lang.String">
+  <insert id="insertSelective" parameterType="com.imooc.netty.model.ChatMsg">
+    <selectKey keyProperty="id" order="AFTER" resultType="java.lang.String">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into my_friends
+    insert into chat_msg
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
+      <if test="sendUserId != null">
+        send_user_id,
       </if>
-      <if test="myFriendUserId != null">
-        my_friend_user_id,
+      <if test="acceptUserId != null">
+        accept_user_id,
+      </if>
+      <if test="msg != null">
+        msg,
+      </if>
+      <if test="signFlag != null">
+        sign_flag,
+      </if>
+      <if test="createTime != null">
+        create_time,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=VARCHAR},
+      <if test="sendUserId != null">
+        #{sendUserId,jdbcType=VARCHAR},
       </if>
-      <if test="myFriendUserId != null">
-        #{myFriendUserId,jdbcType=VARCHAR},
+      <if test="acceptUserId != null">
+        #{acceptUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="signFlag != null">
+        #{signFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.slx.zsxt.model.MyFriendsExample" resultType="java.lang.Long">
-    select count(*) from my_friends
+  <select id="countByExample" parameterType="com.imooc.netty.model.ChatMsgExample" resultType="java.lang.Long">
+    select count(*) from chat_msg
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update my_friends
+    update chat_msg
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=VARCHAR},
       </if>
-      <if test="record.myUserId != null">
-        my_user_id = #{record.myUserId,jdbcType=VARCHAR},
+      <if test="record.sendUserId != null">
+        send_user_id = #{record.sendUserId,jdbcType=VARCHAR},
       </if>
-      <if test="record.myFriendUserId != null">
-        my_friend_user_id = #{record.myFriendUserId,jdbcType=VARCHAR},
+      <if test="record.acceptUserId != null">
+        accept_user_id = #{record.acceptUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.msg != null">
+        msg = #{record.msg,jdbcType=VARCHAR},
+      </if>
+      <if test="record.signFlag != null">
+        sign_flag = #{record.signFlag,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -152,30 +184,45 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update my_friends
+    update chat_msg
     set id = #{record.id,jdbcType=VARCHAR},
-      my_user_id = #{record.myUserId,jdbcType=VARCHAR},
-      my_friend_user_id = #{record.myFriendUserId,jdbcType=VARCHAR}
+      send_user_id = #{record.sendUserId,jdbcType=VARCHAR},
+      accept_user_id = #{record.acceptUserId,jdbcType=VARCHAR},
+      msg = #{record.msg,jdbcType=VARCHAR},
+      sign_flag = #{record.signFlag,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.slx.zsxt.model.MyFriends">
-    update my_friends
+  <update id="updateByPrimaryKeySelective" parameterType="com.imooc.netty.model.ChatMsg">
+    update chat_msg
     <set>
-      <if test="myUserId != null">
-        my_user_id = #{myUserId,jdbcType=VARCHAR},
+      <if test="sendUserId != null">
+        send_user_id = #{sendUserId,jdbcType=VARCHAR},
       </if>
-      <if test="myFriendUserId != null">
-        my_friend_user_id = #{myFriendUserId,jdbcType=VARCHAR},
+      <if test="acceptUserId != null">
+        accept_user_id = #{acceptUserId,jdbcType=VARCHAR},
+      </if>
+      <if test="msg != null">
+        msg = #{msg,jdbcType=VARCHAR},
+      </if>
+      <if test="signFlag != null">
+        sign_flag = #{signFlag,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.slx.zsxt.model.MyFriends">
-    update my_friends
-    set my_user_id = #{myUserId,jdbcType=VARCHAR},
-      my_friend_user_id = #{myFriendUserId,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.imooc.netty.model.ChatMsg">
+    update chat_msg
+    set send_user_id = #{sendUserId,jdbcType=VARCHAR},
+      accept_user_id = #{acceptUserId,jdbcType=VARCHAR},
+      msg = #{msg,jdbcType=VARCHAR},
+      sign_flag = #{signFlag,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=VARCHAR}
   </update>
 </mapper>

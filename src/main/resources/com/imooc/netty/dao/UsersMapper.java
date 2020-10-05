@@ -1,7 +1,7 @@
-package com.immoc.netty.dao;
+package com.imooc.netty.dao;
 
-import com.slx.zsxt.model.Users;
-import com.slx.zsxt.model.UsersExample;
+import com.imooc.netty.model.Users;
+import com.imooc.netty.model.UsersExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 

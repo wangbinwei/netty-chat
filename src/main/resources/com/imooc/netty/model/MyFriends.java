@@ -1,4 +1,4 @@
-package com.slx.zsxt.model;
+package com.imooc.netty.model;
 
 public class MyFriends {
     private String id;
