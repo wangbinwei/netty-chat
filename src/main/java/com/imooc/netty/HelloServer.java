@@ -1,4 +1,4 @@
-package com.immoc.netty;
+package com.imooc.netty;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
